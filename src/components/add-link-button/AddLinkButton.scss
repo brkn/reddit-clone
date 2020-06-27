@@ -1,9 +1,8 @@
 .add-link-button {
   display: flex;
-  height: 100%;
-  width: max-content;
+  width: 400px;
 
-  margin: 20px auto 0;
+  margin: 20px auto;
 
   font-size: larger;
   font-weight: 700;
@@ -23,7 +22,6 @@
     padding: 20px 25px;
 
     background-color: darken(white, 8);
-
 
     border: 0.01em solid black;
     border-radius: 8px;
