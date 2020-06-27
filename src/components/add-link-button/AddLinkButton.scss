@@ -1,0 +1,44 @@
+.add-link-button {
+  display: flex;
+  height: 100%;
+  width: max-content;
+
+  margin: 20px auto 0;
+
+  font-size: larger;
+  font-weight: 700;
+
+  padding: 8px;
+
+  border: 1px solid #ececec;
+  border-radius: 8px;
+
+  background-color: darken(white, 5);
+
+  .add-link-button-icon {
+    display: inline-block;
+
+    font-size: xx-large;
+
+    padding: 20px 25px;
+
+    background-color: darken(white, 8);
+
+
+    border: 0.01em solid black;
+    border-radius: 8px;
+
+    margin-right: 20px;
+  }
+
+  .add-link-button-text {
+    display: inline-block;
+
+    padding: 20px 25px;
+    margin: auto;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,20 +1,27 @@
 import React from "react";
 import {
-  render, screen
+  render, RenderResult
 } from "@testing-library/react";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
 import { Header } from "./Header";
 
+let utils: RenderResult;
+
 describe("Header", () => {
-  test("renders a header element as the wrapper", () => {
+  beforeEach(() => {
     const history = createMemoryHistory();
-    const { container } = render(
+    utils = render(
       <Router history={history}>
         <Header />
       </Router>
     );
+  });
+
+  test("renders a header element as the wrapper", () => {
+    const { container } = utils;
+
     const headerElement = container.firstElementChild;
 
     expect(headerElement).toBeInTheDocument();
@@ -22,12 +29,8 @@ describe("Header", () => {
   });
 
   test("renders logo link with 'hepsiburada' as innerText", () => {
-    const history = createMemoryHistory();
-    const { getByText } = render(
-      <Router history={history}>
-        <Header />
-      </Router>
-    );
+    const { getByText } = utils;
+
     const headerLogoNode = getByText(/hepsiburada/i);
 
     expect(headerLogoNode).toBeInTheDocument();
