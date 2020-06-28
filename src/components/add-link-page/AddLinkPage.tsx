@@ -8,5 +8,9 @@ import { Types } from "../../store/reducers";
 export function AddLinkPage() {
   /* const { dispatch } = useContext(AppContext); */
 
-  return <form>{"fixme"}</form>;
+  return (
+    <main className={"add-link-page"}>
+      <form>{"fixme"}</form>
+    </main>
+  );
 }

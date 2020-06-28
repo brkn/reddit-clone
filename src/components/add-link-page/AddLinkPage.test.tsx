@@ -6,11 +6,11 @@ import {
 import { AddLinkPage } from "./AddLinkPage";
 
 describe("AddLinkPage", () => {
-  test("should render a form as the wrapper element", () => {
+  test("should render a main as the wrapper element", () => {
     const { container } = render(<AddLinkPage />);
     const wrapperElement = container.firstElementChild;
 
     expect(wrapperElement).toBeInTheDocument();
-    expect(wrapperElement?.tagName.toLowerCase()).toBe("form");
+    expect(wrapperElement?.tagName.toLowerCase()).toBe("main");
   });
 });
