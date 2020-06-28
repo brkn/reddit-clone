@@ -1,0 +1,11 @@
+.return-to-list-link-text {
+  display: flex;
+  width: 400px;
+
+  font-size: large;
+  font-weight: 600;
+
+  &::before {
+    content: "\2190  ";
+  }
+}

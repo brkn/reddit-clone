@@ -3,15 +3,20 @@ import {
   render, RenderResult
 } from "@testing-library/react";
 import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
+import {
+  createMemoryHistory, MemoryHistory
+} from "history";
 
+import { fireEvent } from "@testing-library/dom";
 import { AddLinkButton } from "./AddLinkButton";
 
 let utils: RenderResult;
+let history: MemoryHistory;
 
 describe("AddLinkButton", () => {
   beforeEach(() => {
-    const history = createMemoryHistory();
+    history = createMemoryHistory();
+
     utils = render(
       <Router history={history}>
         <AddLinkButton />
@@ -38,7 +43,14 @@ describe("AddLinkButton", () => {
     expect(textElement).toBeInTheDocument();
   });
 
-  test("TODO check if the link redirects corectly", () => {
-    expect(1).toBe(1);
+  test("should redirect to add link page when clicked", () => {
+    const { container } = utils;
+    const wrapperButton = container.firstElementChild;
+    if (!wrapperButton) {
+      throw new Error("Wrapper element was not found");
+    }
+    fireEvent.click(wrapperButton);
+
+    expect(history.location.pathname).toEqual("/add-link");
   });
 });
