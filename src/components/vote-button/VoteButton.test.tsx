@@ -26,6 +26,8 @@ describe("VoteButton", () => {
     expect(wrapperElement).toHaveAttribute("type", "button");
   });
 
+  // TODO: Add tests for upvote and downvote handlers
+
   /* test("should handle upvoting", async () => {
     const { container, getAllByText } = render(<List />);
     const firstListItem = container.getElementsByClassName(
