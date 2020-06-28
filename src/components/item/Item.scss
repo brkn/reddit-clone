@@ -4,7 +4,15 @@
   width: 420px;
 
   margin: 0 auto 25px;
-  padding: 0 10px;
+  padding: 10px;
+
+  border-radius: 8px;
+
+  transition: background-color 0.25s;
+
+  &:hover {
+    background-color: darken(white, 8);
+  }
 
   .list-item-points {
     display: inline-block;
