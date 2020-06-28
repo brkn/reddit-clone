@@ -1,0 +1,53 @@
+.list-item {
+  display: flex;
+
+  width: 420px;
+
+  margin: 0 auto 25px;
+  padding: 0 10px;
+
+  .list-item-points {
+    display: inline-block;
+
+    padding: 23px 25px;
+    margin-right: 20px;
+
+    text-align: center;
+
+    background-color: darken(white, 8);
+
+    border: 0.01em solid black;
+    border-radius: 8px;
+
+    .list-item-points-value {
+      font-size: xx-large;
+      font-weight: 800;
+    }
+  }
+
+  .list-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    .list-item-link-url-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &::before {
+        content: "(";
+      }
+      &::after {
+        content: ")";
+      }
+    }
+
+    .list-item-vote-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

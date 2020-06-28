@@ -25,7 +25,7 @@ describe("AddLinkButton", () => {
     const wrapperButton = container.firstElementChild;
 
     expect(wrapperButton).toBeInTheDocument();
-    expect(wrapperButton?.getAttribute("href")).toBe("/add-link");
+    expect(wrapperButton).toHaveAttribute("href", "/add-link");
   });
 
   test("should render unicode plus icon and submit link text", () => {
