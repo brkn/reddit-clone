@@ -8,6 +8,7 @@ import {
 import { Header } from "../header/Header";
 import { Homepage } from "../homepage/Homepage";
 import { AppProvider } from "../../store/context";
+import { AddLinkPage } from "../add-link-page/AddLinkPage";
 
 export function App() {
   return (
@@ -19,6 +20,11 @@ export function App() {
             exact
             path="/"
             component={Homepage}
+          />
+          <Route
+            exact
+            path="/add-link"
+            component={AddLinkPage}
           />
         </Switch>
       </BrowserRouter>
