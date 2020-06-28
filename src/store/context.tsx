@@ -11,7 +11,7 @@ type InitialStateType = {
   items: ItemObject[];
 };
 
-const initialState: InitialStateType = {
+export const initialState: InitialStateType = {
   items: [
     {
       points: 3,
@@ -47,7 +47,7 @@ const mainReducer = ({ items }: InitialStateType, action: ItemActions) => ({
   items: itemsReducer(items, action),
 });
 
-type AppProviderProps = {
+export type AppProviderProps = {
   children: React.ReactNode;
 };
 

@@ -15,7 +15,7 @@ type ItemProps = {
 };
 
 export function Item({ item }: ItemProps) {
-  const { points, url, title } = item;
+  const { points, url, title, timestamp } = item;
 
   /* const urlText = getTrimmedUrlText(); */
 
@@ -37,8 +37,14 @@ export function Item({ item }: ItemProps) {
         </a>
 
         <div className={"list-item-vote-buttons"}>
-          <VoteButton type={"upvote"} />
-          <VoteButton type={"downvote"} />
+          <VoteButton
+            type={"upvote"}
+            timestamp={timestamp}
+          />
+          <VoteButton
+            type={"downvote"}
+            timestamp={timestamp}
+          />
         </div>
       </div>
     </li>
