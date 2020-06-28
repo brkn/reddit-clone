@@ -15,7 +15,6 @@ export function VoteButton({ type, timestamp }: VoteButtonProps) {
   const { dispatch } = useContext(AppContext);
 
   const handleOnClick = type === "upvote" ? handleUpvote : handleDownvote;
-  const arrowUnicode = type === "upvote" ? "\u02C4" : "\u02C5";
 
   function handleUpvote() {
     dispatch({
@@ -41,7 +40,6 @@ export function VoteButton({ type, timestamp }: VoteButtonProps) {
       type={"button"}
       onClick={handleOnClick}
     >
-      {arrowUnicode}
       {type}
     </button>
   );
