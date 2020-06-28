@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  render, RenderResult
+  render, RenderResult, fireEvent
 } from "@testing-library/react";
 
 import {
@@ -48,11 +48,35 @@ describe("AddLinkPage", () => {
     const inputs = Array.from(formElement.getElementsByTagName("input"));
 
     expect(inputs.length).toBe(2);
-    inputs.forEach((input) => { expect(input).toBeInTheDocument(); });
+    inputs.forEach((input) => {
+      expect(input).toBeInTheDocument();
+    });
 
     const submitButton = formElement.getElementsByTagName("button")[0];
 
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).toHaveAttribute("type", "submit");
+  });
+
+  test("should not call submit handler when inputs are empty", () => {
+    const { container } = utils;
+    const formElement = container.getElementsByTagName("form")[0];
+
+    // TODO: fix this test
+  });
+
+  test("should update the value of the inputs when keys are send", () => {
+    const { container } = utils;
+    const formElement = container.getElementsByTagName("form")[0];
+    const inputs = Array.from(formElement.getElementsByTagName("input"));
+
+    inputs.forEach((input) => {
+      fireEvent.change(input, { target: { value: "23" } });
+      expect(input.value).toBe("23");
+      fireEvent.change(input, { target: { value: "alskjdh" } });
+      expect(input.value).toBe("alskjdh");
+      fireEvent.change(input, { target: { value: "" } });
+      expect(input.value).toBe("");
+    });
   });
 });

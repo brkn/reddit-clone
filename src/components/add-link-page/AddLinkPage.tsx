@@ -35,7 +35,7 @@ export function AddLinkPage() {
   ) => {
     event.preventDefault();
 
-    console.log("submit clicked");
+    console.log(linkNameValue, linkUrlValue);
   };
 
   return (
