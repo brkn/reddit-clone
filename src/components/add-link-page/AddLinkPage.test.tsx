@@ -79,4 +79,20 @@ describe("AddLinkPage", () => {
       expect(input.value).toBe("");
     });
   });
+
+  test("should redirect to homepage when submitted", async () => {
+    const { container } = utils;
+    const formElement = container.getElementsByTagName("form")[0];
+    const [
+      nameInput,
+      urlInput
+    ] = Array.from(formElement.getElementsByTagName("input"));
+    const submitButton = formElement.getElementsByTagName("button")[0];
+
+    fireEvent.change(nameInput, { target: { value: "name" } });
+    fireEvent.change(urlInput, { target: { value: "https://www.hepsiburada.com/" } });
+    fireEvent.click(submitButton);
+
+    expect(history.location.pathname).toEqual("/");
+  });
 });

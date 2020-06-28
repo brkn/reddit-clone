@@ -4,6 +4,7 @@ import React, {
   useContext, useState
 } from "react";
 
+import { useHistory } from "react-router-dom";
 import { ReturnToListLink } from "../return-to-list-link/ReturnToListLink";
 import { AppContext } from "../../store/context";
 import { Types } from "../../store/reducers";
@@ -17,7 +18,8 @@ export function AddLinkPage() {
     linkUrlValue,
     setLinkUrlValue
   ] = useState("");
-  /* const { dispatch } = useContext(AppContext); */
+  const { dispatch } = useContext(AppContext);
+  const history = useHistory();
 
   const nameId = "link-name";
   const urlId = "link-url";
@@ -35,7 +37,14 @@ export function AddLinkPage() {
   ) => {
     event.preventDefault();
 
-    console.log(linkNameValue, linkUrlValue);
+    dispatch({
+      type: Types.Create,
+      payload: {
+        title: linkNameValue,
+        url: linkUrlValue,
+      },
+    });
+    history.push("/");
   };
 
   return (

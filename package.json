@@ -64,5 +64,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "5.2.0"
+  },
+  "resolutions": {
+    "jest-environment-jsdom": "^26.0.1"
   }
 }

@@ -19,7 +19,7 @@ export enum Types {
 }
 
 type ItemPayload = {
-  [Types.Create]: Omit<ItemObject, "timestamp">;
+  [Types.Create]: Pick<ItemObject, "url" | "title">;
   [Types.Delete]: {
     timestamp: number;
   };
@@ -38,11 +38,11 @@ export type ItemActions = ActionTypeGenerator<
 export const itemsReducer = (state: ItemObject[], action: ItemActions) => {
   switch (action.type) {
     case Types.Create: {
-      const { points, url, title } = action.payload;
+      const { url, title } = action.payload;
       const newItem: ItemObject = {
-        points,
         url,
         title,
+        points: 1,
         timestamp: new Date().valueOf(),
       };
 
