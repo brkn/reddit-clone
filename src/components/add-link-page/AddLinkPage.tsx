@@ -12,7 +12,8 @@ export function AddLinkPage() {
   return (
     <main className={"add-link-page"}>
       <ReturnToListLink />
-      <form>{"fixme"}
+      <form>
+        <h2 className={"add-link-page-header"}>{"Add New Link"}</h2>
       </form>
     </main>
   );

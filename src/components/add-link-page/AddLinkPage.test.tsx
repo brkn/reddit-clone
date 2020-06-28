@@ -22,11 +22,20 @@ describe("AddLinkPage", () => {
       </Router>
     );
   });
+
   test("should render a main as the wrapper element", () => {
     const { container } = utils;
     const wrapperElement = container.firstElementChild;
 
     expect(wrapperElement).toBeInTheDocument();
     expect(wrapperElement?.tagName.toLowerCase()).toBe("main");
+  });
+
+  test("should render a header", () => {
+    const { getByText } = utils;
+
+    const headerTitle = getByText(/add new link/i);
+
+    expect(headerTitle).toBeInTheDocument();
   });
 });
