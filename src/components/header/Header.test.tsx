@@ -34,7 +34,7 @@ describe("Header", () => {
     const headerLogoNode = getByText(/hepsiburada/i);
 
     expect(headerLogoNode).toBeInTheDocument();
-    expect(headerLogoNode.getAttribute("href")).toBe("/");
+    expect(headerLogoNode).toHaveAttribute("href", "/");
   });
 
   test("TODO check if the link redirects corectly", () => {

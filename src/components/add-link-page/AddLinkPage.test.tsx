@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  render, fireEvent, RenderResult
+  render, RenderResult
 } from "@testing-library/react";
 
 import {
@@ -37,5 +37,22 @@ describe("AddLinkPage", () => {
     const headerTitle = getByText(/add new link/i);
 
     expect(headerTitle).toBeInTheDocument();
+  });
+
+  test("should render a form with 2 inputs and submit button", () => {
+    const { container } = utils;
+    const formElement = container.getElementsByTagName("form")[0];
+
+    expect(formElement).toBeInTheDocument();
+
+    const inputs = Array.from(formElement.getElementsByTagName("input"));
+
+    expect(inputs.length).toBe(2);
+    inputs.forEach((input) => { expect(input).toBeInTheDocument(); });
+
+    const submitButton = formElement.getElementsByTagName("button")[0];
+
+    expect(submitButton).toBeInTheDocument();
+    expect(submitButton).toHaveAttribute("type", "submit");
   });
 });
