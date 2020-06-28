@@ -53,11 +53,14 @@ export function AddLinkPage() {
 
       <h2 className={"add-link-page-header"}>{"Add New Link"}</h2>
 
-      <form onSubmit={submitForm}>
+      <form
+        className={"add-link-page-form"}
+        onSubmit={submitForm}
+      >
         <div className="input-wrapper name-input-wrapper">
           <label
+            className="input-label name-input-label"
             htmlFor={nameId}
-            className="name-input-label"
           >
             {"Link Name:"}
           </label>
@@ -66,7 +69,7 @@ export function AddLinkPage() {
             type="text"
             name={nameId}
             id={nameId}
-            className={"name-input"}
+            className={"input name-input"}
             placeholder={"e.g. Reddit"}
             value={linkNameValue}
             onChange={handleLinkNameChange}
@@ -76,8 +79,8 @@ export function AddLinkPage() {
 
         <div className="input-wrapper url-input-wrapper">
           <label
+            className="input-label url-input-label"
             htmlFor={urlId}
-            className="url-input-label"
           >
             {"Link URL:"}
           </label>
@@ -86,19 +89,20 @@ export function AddLinkPage() {
             type="url"
             name={urlId}
             id={urlId}
-            className={"url-input"}
+            className={"input url-input"}
             placeholder={"e.g. https://www.hepsiburada.com/"}
             value={linkUrlValue}
             onChange={handleLinkUrlChange}
           />
-
-          <button
-            type="submit"
-            onSubmit={submitForm}
-          >
-            {"ADD"}
-          </button>
         </div>
+
+        <button
+          className={"add-link-page-form-submit-button"}
+          type="submit"
+          onSubmit={submitForm}
+        >
+          {"ADD"}
+        </button>
       </form>
     </main>
   );
