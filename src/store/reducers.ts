@@ -14,11 +14,19 @@ type ActionTypeGenerator<M extends { [index: string]: any }> = {
 export enum Types {
   Create = "CREATE_ITEM",
   Delete = "DELETE_ITEM",
+  Upvote = "UPVOTE_ITEM",
+  Downvote = "DOWNVOTE_ITEM",
 }
 
 type ItemPayload = {
   [Types.Create]: Omit<ItemObject, "timestamp">;
   [Types.Delete]: {
+    timestamp: number;
+  };
+  [Types.Upvote]: {
+    timestamp: number;
+  };
+  [Types.Downvote]: {
     timestamp: number;
   };
 };
@@ -43,8 +51,42 @@ export const itemsReducer = (state: ItemObject[], action: ItemActions) => {
         newItem
       ];
     }
+
     case Types.Delete:
       return [...state.filter((item) => item.timestamp !== action.payload.timestamp)];
+
+    case Types.Upvote: {
+      const { timestamp } = action.payload;
+
+      return [...state.map((item) => {
+        if (item.timestamp !== timestamp) {
+          return item;
+        }
+        const newItem: ItemObject = {
+          ...item,
+          points: item.points + 1,
+        };
+
+        return newItem;
+      })];
+    }
+
+    case Types.Downvote: {
+      const { timestamp } = action.payload;
+
+      return [...state.map((item) => {
+        if (item.timestamp !== timestamp) {
+          return item;
+        }
+        const newItem: ItemObject = {
+          ...item,
+          points: item.points - 1,
+        };
+
+        return newItem;
+      })];
+    }
+
     default:
       return state;
   }
