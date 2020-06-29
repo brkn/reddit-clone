@@ -1,18 +1,31 @@
 .delete-confirmation-modal {
   position: relative;
 
-  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  top: 30%;
   left: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
 
-  width: 500px;
+  width: 570px;
+
+  opacity: 1;
+  background-color: white;
+
+  > * {
+    margin-bottom: 35px;
+  }
 
   .modal-header {
     display: flex;
     justify-content: space-between;
 
-    padding: 5px;
+    width: 100%;
+
+    padding: 10px;
 
     background-color: black;
     color: white;
@@ -35,6 +48,41 @@
 
       font-size: x-large;
       font-weight: 700;
+    }
+  }
+
+  .modal-body {
+    text-align: center;
+    .modal-message {
+      font-size: x-large;
+      font-weight: 500;
+
+      color: darken(white, 80);
+    }
+
+    .modal-item-title{
+      font-size: xx-large;
+      font-weight: 700;
+    }
+  }
+
+  .modal-action-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 440px;
+
+    .modal-action-button {
+      cursor: pointer;
+      width: 200px;
+      height: 50px;
+
+      background-color: black;
+      color: white;
+
+      font-size: x-large;
+      font-weight: 700;
+
+      border-radius: 50px;
     }
   }
 }

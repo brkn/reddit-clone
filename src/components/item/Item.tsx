@@ -1,9 +1,13 @@
 import "./Item.scss";
 
-import React, { useState } from "react";
+import React, {
+  useState, useContext
+} from "react";
 import { VoteButton } from "../vote-button/VoteButton";
 import { DeleteItemButton } from "../delete-item-button/DeleteItemButton";
 import { DeleteConfirmationModal } from "../delete-confirrmation-modal/DeleteConfirmationModal";
+import { Types } from "../../store/reducers";
+import { AppContext } from "../../store/context";
 
 export type ItemObject = {
   points: number;
@@ -26,6 +30,7 @@ export function Item({ item }: ItemProps) {
     isModalOpen,
     setIsModalOpen
   ] = useState(false);
+  const { dispatch } = useContext(AppContext);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -35,7 +40,14 @@ export function Item({ item }: ItemProps) {
     setIsModalOpen(false);
   };
   const handleConfirmDelete = () => {
-    console.log(`${timestamp} is deleted`);
+    dispatch({
+      type: Types.Delete,
+      payload: {
+        timestamp,
+      },
+    });
+
+    handleCloseModal();
   };
 
   /* const urlText = getTrimmedUrlText(); */
@@ -57,6 +69,7 @@ export function Item({ item }: ItemProps) {
         />
 
         <DeleteConfirmationModal
+          itemTitle={title}
           isModalOpen={isModalOpen}
           handleCloseModal={handleCloseModal}
           handleConfirmDelete={handleConfirmDelete}
