@@ -47,8 +47,8 @@ export const itemsReducer = (state: ItemObject[], action: ItemActions) => {
       };
 
       return [
+        newItem,
         ...state,
-        newItem
       ];
     }
 
