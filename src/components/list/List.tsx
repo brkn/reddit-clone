@@ -12,9 +12,10 @@ import {
 
 type ListProps = {
   selectedSortingOption: SortingOptions;
+  activePage: number;
 };
 
-export function List({ selectedSortingOption }: ListProps) {
+export function List({ selectedSortingOption, activePage }: ListProps) {
   const { state } = useContext(AppContext);
   const [
     sortedItems,
@@ -29,9 +30,11 @@ export function List({ selectedSortingOption }: ListProps) {
     state.items
   ]);
 
+  const paginatedItems = sortedItems.slice(0 + (activePage - 1) * 5, 5 + (activePage - 1) * 5);
+
   return (
     <ul className={"list-wrapper"}>
-      {sortedItems.map((item, index) => (
+      {paginatedItems.map((item, index) => (
         <Item
           key={`${index}-${item.title}`}
           item={item}

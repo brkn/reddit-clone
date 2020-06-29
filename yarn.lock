@@ -9443,6 +9443,13 @@ react-modal@^3.11.2:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
+react-pagination-lite@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-pagination-lite/-/react-pagination-lite-1.3.1.tgz#e3ff2ec4f3554cd7b27bbbfa0c9664c764da1994"
+  integrity sha512-5E7D3irwUE10iCz91BuMdGODGpkBqdMUW7kzzHu3c4fEiLDS01is7YZpLUksaz1u1n4/+gu7s2+8+kXEG1dp2w==
+  dependencies:
+    react "^16.12.0"
+
 react-router-dom@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
@@ -9551,7 +9558,7 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.1:
+react@^16.12.0, react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
