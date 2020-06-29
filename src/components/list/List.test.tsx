@@ -9,7 +9,10 @@ let utils: RenderResult;
 
 describe("List", () => {
   beforeEach(() => {
-    utils = render(<List />);
+    utils = render(<List
+      activePage={1}
+      selectedSortingOption={"Newest"}
+    />);
   });
 
   test("should render an ul as the wrapper element", () => {

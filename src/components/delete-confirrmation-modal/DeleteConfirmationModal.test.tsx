@@ -7,7 +7,7 @@ import { initialState } from "../../store/context";
 
 ReactModal.setAppElement(document.createElement("div"));
 
-const { timestamp } = initialState.items[0];
+const { title, timestamp } = initialState.items[0];
 
 
 const mockedHandleCloseModal = jest.fn();
@@ -16,13 +16,12 @@ describe("DeleteConfirmationModal", () => {
   test("should render a header with close button", () => {
     const { container } = render(
       <DeleteConfirmationModal
+        itemTitle={title}
         isModalOpen={true}
         handleCloseModal={mockedHandleCloseModal}
         handleConfirmDelete={mockedHandleCloseModal}
       />
     );
-
-    console.log(container.outerHTML);
 
     const wrapperElement = container.getElementsByClassName("modal-header")[0];
 
