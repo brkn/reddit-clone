@@ -1,7 +1,8 @@
 import "./Item.scss";
 
-import React from "react";
+import React, { useState } from "react";
 import { VoteButton } from "../vote-button/VoteButton";
+import { DeleteItemButton } from "../delete-item-button/DeleteItemButton";
 
 export type ItemObject = {
   points: number;
@@ -16,16 +17,28 @@ type ItemProps = {
 
 export function Item({ item }: ItemProps) {
   const { points, url, title, timestamp } = item;
+  const [
+    isHovered,
+    setIsHovered
+  ] = useState(false);
 
   /* const urlText = getTrimmedUrlText(); */
 
   return (
-    <li className={"list-item"}>
+    <li
+      className={"list-item"}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className={"list-item-points"}>
         <p className={"list-item-points-value"}>{points}</p>
         <p className={"list-item-points-text"}>{"POINTS"}</p>
       </div>
       <div className={"list-item-details"}>
+        <DeleteItemButton
+          timestamp={timestamp}
+          isVissible={isHovered}
+        />
         <a
           href={url}
           target={"_blank"}
