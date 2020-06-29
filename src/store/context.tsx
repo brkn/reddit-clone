@@ -1,5 +1,5 @@
 import React, {
-  createContext, useReducer, Dispatch
+  createContext, useReducer, Dispatch, useEffect
 } from "react";
 
 import {
@@ -35,6 +35,10 @@ export const initialState: InitialStateType = {
   ],
 };
 
+const localState = JSON.parse(
+  localStorage.getItem("state") as string
+) as InitialStateType;
+
 const AppContext = createContext<{
   state: InitialStateType;
   dispatch: Dispatch<ItemActions>;
@@ -55,7 +59,11 @@ const AppProvider = ({ children }: AppProviderProps) => {
   const [
     state,
     dispatch
-  ] = useReducer(mainReducer, initialState);
+  ] = useReducer(mainReducer, localState || initialState);
+
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(state));
+  }, [state]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
