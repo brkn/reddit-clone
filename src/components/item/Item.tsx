@@ -3,6 +3,7 @@ import "./Item.scss";
 import React, { useState } from "react";
 import { VoteButton } from "../vote-button/VoteButton";
 import { DeleteItemButton } from "../delete-item-button/DeleteItemButton";
+import { DeleteConfirmationModal } from "../delete-confirrmation-modal/DeleteConfirmationModal";
 
 export type ItemObject = {
   points: number;
@@ -21,6 +22,21 @@ export function Item({ item }: ItemProps) {
     isHovered,
     setIsHovered
   ] = useState(false);
+  const [
+    isModalOpen,
+    setIsModalOpen
+  ] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  const handleConfirmDelete = () => {
+    console.log(`${timestamp} is deleted`);
+  };
 
   /* const urlText = getTrimmedUrlText(); */
 
@@ -36,9 +52,16 @@ export function Item({ item }: ItemProps) {
       </div>
       <div className={"list-item-details"}>
         <DeleteItemButton
-          timestamp={timestamp}
+          openModal={openModal}
           isVissible={isHovered}
         />
+
+        <DeleteConfirmationModal
+          isModalOpen={isModalOpen}
+          handleCloseModal={handleCloseModal}
+          handleConfirmDelete={handleConfirmDelete}
+        />
+
         <a
           href={url}
           target={"_blank"}

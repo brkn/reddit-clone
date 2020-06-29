@@ -1,6 +1,8 @@
 import React from "react";
 import {
-  render, RenderResult, fireEvent, waitFor
+  render,
+  RenderResult,
+  fireEvent,
 } from "@testing-library/react";
 
 import {
@@ -102,7 +104,9 @@ describe("Item", () => {
 
   describe("delete button", () => {
     test("should only be visible when item is hovered", () => {
-      const { container, queryByText } = render(<Item item={dummyItemObject} />);
+      const { container, queryByText } = render(
+        <Item item={dummyItemObject} />
+      );
       const wrapperElement = container.firstElementChild;
       if (!wrapperElement) {
         throw new Error("Wrapper element was not found");
@@ -112,9 +116,7 @@ describe("Item", () => {
       expect(deleteButton).not.toBeInTheDocument();
 
       fireEvent.mouseOver(wrapperElement);
-      waitFor(() => {
-        deleteButton = queryByText("\u2717");
-      });
+      deleteButton = queryByText("\u2717");
       expect(deleteButton).toBeInTheDocument();
     });
   });

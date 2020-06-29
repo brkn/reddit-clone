@@ -1,19 +1,16 @@
 import "./DeleteItemButton.scss";
 
-import React, { useContext } from "react";
-import { ItemObject } from "../item/Item";
+import React from "react";
 
 type DeleteItemButtonProps = {
-  timestamp: ItemObject["timestamp"];
   isVissible: boolean;
+  openModal: any;
 };
 
 export function DeleteItemButton({
-  timestamp,
   isVissible,
+  openModal,
 }: DeleteItemButtonProps) {
-  const openModal = undefined;
-
   if (!isVissible) {
     return null;
   }
