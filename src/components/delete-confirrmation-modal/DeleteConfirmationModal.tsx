@@ -3,6 +3,7 @@ import "./DeleteConfirmationModal.scss";
 
 import React from "react";
 import ReactModal from "react-modal";
+
 import { ItemObject } from "../item/Item";
 
 type DeleteConfirmationModalProps = {

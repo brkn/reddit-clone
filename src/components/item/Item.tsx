@@ -3,6 +3,8 @@ import "./Item.scss";
 import React, {
   useState, useContext
 } from "react";
+import { toast } from "react-toastify";
+
 import { VoteButton } from "../vote-button/VoteButton";
 import { DeleteItemButton } from "../delete-item-button/DeleteItemButton";
 import { DeleteConfirmationModal } from "../delete-confirrmation-modal/DeleteConfirmationModal";
@@ -48,6 +50,7 @@ export function Item({ item }: ItemProps) {
     });
 
     handleCloseModal();
+    toast.success(`${title} is removed`);
   };
 
   /* const urlText = getTrimmedUrlText(); */

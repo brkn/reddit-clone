@@ -3,8 +3,9 @@ import "./AddLinkPage.scss";
 import React, {
   useContext, useState
 } from "react";
-
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+
 import { ReturnToListLink } from "../return-to-list-link/ReturnToListLink";
 import { AppContext } from "../../store/context";
 import { Types } from "../../store/reducers";
@@ -44,6 +45,7 @@ export function AddLinkPage() {
         url: linkUrlValue,
       },
     });
+    toast.success(`${linkNameValue} is added`);
     history.push("/");
   };
 
