@@ -1,2 +1,16 @@
 .delete-item-button {
+  position: absolute;
+  right: 0;
+
+  background-color: unset;
+  cursor: pointer;
+
+  width: min-content;
+
+  padding: 5px;
+
+  border: 0.01em solid black;
+  border-radius: 8px;
+
+  color: #333333;
 }
